@@ -1,0 +1,27 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Отправка заявки с именем и телефоном",
+      "method": "POST",
+      "path": "/",
+      "body": { "name": "Иван", "phone": "+7 967 170 9494" },
+      "expectedStatus": 200,
+      "expectedBody": { "success": true },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Ошибка без телефона",
+      "method": "POST",
+      "path": "/",
+      "body": { "name": "Иван" },
+      "expectedStatus": 400,
+      "bodyMatcher": "partial"
+    }
+  ]
+}
