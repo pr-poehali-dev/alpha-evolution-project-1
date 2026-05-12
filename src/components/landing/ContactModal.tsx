@@ -63,7 +63,13 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 800));
+    try {
+      await fetch("https://functions.poehali.dev/ed537ffe-aeeb-41db-9b90-07d8404e30d2", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone }),
+      });
+    } catch (_) { /* ignore */ }
     setLoading(false);
     setView("success");
   };

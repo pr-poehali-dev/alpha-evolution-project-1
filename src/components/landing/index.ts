@@ -7,3 +7,4 @@ export { PricingSection } from "./PricingSection";
 export { FAQSection } from "./FAQSection";
 export { Footer } from "./Footer";
 export { ContactModal } from "./ContactModal";
+export { AppointmentModal } from "./AppointmentModal";
