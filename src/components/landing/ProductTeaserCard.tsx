@@ -15,9 +15,9 @@ interface ProductTeaserCardProps {
 
 export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   const {
-    dailyVolumeLabel = "ОФИЦИАЛЬНЫЙ СЕРВИС IVECO В ВАШЕМ ГОРОДЕ",
-    headline = "Ремонт грузовиков IVECO — узкая специализация, глубокая экспертиза",
-    subheadline = "Специализируемся исключительно на IVECO: Daily, Eurocargo, Trakker, Stralis. Диагностика, капремонт двигателей Common Rail, КПП, электрика и ТО — всё в одном месте.",
+    dailyVolumeLabel = "🚀 НОВЫЙ СЕРВИС В ЛЮБЕРЦАХ — ОТКРЫЛИСЬ!",
+    headline = "Сервис по ремонту IVECO в Люберцах — записывайтесь первыми",
+    subheadline = "Мы только открылись и уже принимаем клиентов. Специализируемся исключительно на IVECO: Daily, Eurocargo, Trakker, Stralis. Честно, быстро, с гарантией.",
     primaryButtonText = "Записаться на ремонт",
     primaryButtonHref = "",
     secondaryButtonText = "Узнать стоимость",
