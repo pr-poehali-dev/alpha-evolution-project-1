@@ -86,16 +86,21 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.645, 0.045, 0.355, 1], delay: 0.2 }}
-            className="col-span-12 lg:col-span-6 bg-gradient-to-br from-[#156d95]/10 to-[#156d95]/30 rounded-[40px] flex justify-center items-center aspect-square overflow-hidden"
+            className="col-span-12 lg:col-span-6 rounded-[40px] overflow-hidden aspect-square grid grid-rows-2 gap-2"
           >
-            <div className="flex flex-col items-center justify-center text-center p-8">
-              <div className="w-32 h-32 rounded-full bg-[#156d95]/20 flex items-center justify-center mb-6">
-                <svg className="w-16 h-16 text-[#156d95]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8zM5.5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                </svg>
-              </div>
-              <p className="text-[#156d95] font-medium text-xl">Специализация: только IVECO</p>
-              <p className="text-[#156d95]/60 text-sm mt-2 text-center max-w-xs">Daily · Eurocargo · Trakker · Stralis</p>
+            <div className="overflow-hidden rounded-[32px]">
+              <img
+                src="https://cdn.poehali.dev/projects/8a1cb2ba-b7b7-49d1-9093-317eb32a0b87/files/118146a6-c95c-4c4c-aef3-58ec870a6d5c.jpg"
+                alt="IVECO Daily белый фургон"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="overflow-hidden rounded-[32px]">
+              <img
+                src="https://cdn.poehali.dev/projects/8a1cb2ba-b7b7-49d1-9093-317eb32a0b87/files/5056298b-260d-4d2b-b741-0c66da87d3c9.jpg"
+                alt="IVECO Daily синий грузовик"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
         </div>
