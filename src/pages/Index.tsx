@@ -3,7 +3,6 @@ import {
   ProductTeaserCard,
   BankingScaleHero,
   CaseStudiesCarousel,
-  IntegrationCarousel,
   PricingSection,
   FAQSection,
   Footer,
@@ -16,7 +15,6 @@ const Index = () => {
       <ProductTeaserCard />
       <BankingScaleHero />
       <CaseStudiesCarousel />
-      <IntegrationCarousel />
       <PricingSection />
       <FAQSection />
       <Footer />
