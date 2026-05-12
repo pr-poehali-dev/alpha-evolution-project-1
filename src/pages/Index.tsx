@@ -18,7 +18,10 @@ const Index = () => {
   return (
     <>
       <PortfolioNavbar />
-      <ProductTeaserCard />
+      <ProductTeaserCard
+        onPrimaryClick={() => setIsAppointmentOpen(true)}
+        onSecondaryClick={() => setIsContactOpen(true)}
+      />
       <BankingScaleHero id="features" />
       <ServicesSection />
       <AboutSection />
