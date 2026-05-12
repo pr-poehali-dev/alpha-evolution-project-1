@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Ошибка без телефона",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Иван"},
+      "expectedStatus": 400
+    },
+    {
+      "name": "Ошибка без слота",
+      "method": "POST",
+      "path": "/",
+      "body": {"phone": "+79001234567"},
+      "expectedStatus": 400
+    }
+  ]
+}

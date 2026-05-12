@@ -1,4 +1,6 @@
 {
+  "get-slots": "https://functions.poehali.dev/34acb88d-8331-43a4-9c4a-837741ebbdc0",
+  "book-appointment": "https://functions.poehali.dev/a7adb937-bf65-4582-924b-1478945554ac",
   "send-appointment": "https://functions.poehali.dev/6848c496-c1a8-4c0f-a69c-4ad2ae0f917d",
   "send-callback": "https://functions.poehali.dev/ed537ffe-aeeb-41db-9b90-07d8404e30d2"
 }
