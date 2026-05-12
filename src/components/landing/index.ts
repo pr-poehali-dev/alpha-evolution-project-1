@@ -6,3 +6,4 @@ export { IntegrationCarousel } from "./IntegrationCarousel";
 export { PricingSection } from "./PricingSection";
 export { FAQSection } from "./FAQSection";
 export { Footer } from "./Footer";
+export { ContactModal } from "./ContactModal";
