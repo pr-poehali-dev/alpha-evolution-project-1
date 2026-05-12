@@ -20,37 +20,37 @@ interface PricingPlan {
 }
 
 const features: PricingFeature[] = [
-  { name: "Анализ разговоров в реальном времени", included: "starter" },
-  { name: "До 10 000 сообщений/месяц", included: "starter" },
-  { name: "Базовое определение тональности", included: "starter" },
-  { name: "Поддержка по email", included: "starter" },
-  { name: "Продвинутый эмоциональный интеллект", included: "pro" },
-  { name: "До 100 000 сообщений/месяц", included: "pro" },
-  { name: "Мультиязычная поддержка (50+ языков)", included: "pro" },
-  { name: "Приоритетная поддержка", included: "pro" },
-  { name: "Кастомное обучение AI модели", included: "enterprise" },
-  { name: "Безлимитные сообщения", included: "enterprise" },
-  { name: "Персональный менеджер", included: "enterprise" },
-  { name: "Поддержка 24/7 по телефону", included: "enterprise" },
-  { name: "Доступ к API", included: "all" },
-  { name: "Инструменты командной работы", included: "all" },
+  { name: "Компьютерная диагностика IVECO", included: "starter" },
+  { name: "Замена масла и фильтров", included: "starter" },
+  { name: "Проверка тормозной системы", included: "starter" },
+  { name: "Консультация механика", included: "starter" },
+  { name: "Ремонт двигателя Common Rail", included: "pro" },
+  { name: "Ремонт КПП и мостов", included: "pro" },
+  { name: "Ремонт подвески и рулевого", included: "pro" },
+  { name: "Приоритетная запись", included: "pro" },
+  { name: "Капитальный ремонт двигателя", included: "enterprise" },
+  { name: "Ремонт и прошивка блоков ECU", included: "enterprise" },
+  { name: "Персональный механик для парка", included: "enterprise" },
+  { name: "Выезд к клиенту", included: "enterprise" },
+  { name: "Гарантия на все работы", included: "all" },
+  { name: "Оригинальные запчасти со склада", included: "all" },
 ];
 
 const plans: PricingPlan[] = [
   {
-    name: "Старт",
-    price: { monthly: 2900, yearly: 29000 },
+    name: "ТО",
+    price: { monthly: 4900, yearly: 49000 },
     level: "starter",
   },
   {
-    name: "Про",
-    price: { monthly: 9900, yearly: 99000 },
+    name: "Ремонт",
+    price: { monthly: 14900, yearly: 149000 },
     level: "pro",
     popular: true,
   },
   {
-    name: "Бизнес",
-    price: { monthly: 29900, yearly: 299000 },
+    name: "Автопарк",
+    price: { monthly: 49900, yearly: 499000 },
     level: "enterprise",
   },
 ];
@@ -71,9 +71,9 @@ export function PricingSection() {
     <section className="py-24 bg-background" id="pricing">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-[40px] font-normal leading-tight mb-4">Выберите тариф</h2>
+          <h2 className="text-[40px] font-normal leading-tight mb-4">Стоимость услуг</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Начните работу с платформой коммуникационной аналитики СинхроЛинк. Все тарифы включают API доступ и инструменты командной работы.
+            Прозрачное ценообразование для владельцев одного грузовика и целых автопарков. Все работы с гарантией и оригинальными запчастями.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export function PricingSection() {
                 !isYearly ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
               )}
             >
-              Месячная
+              Разовый ремонт
             </button>
             <button
               type="button"
@@ -97,7 +97,7 @@ export function PricingSection() {
                 isYearly ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
               )}
             >
-              Годовая
+              Обслуживание парка
               <span className="ml-2 text-sm text-[#156d95]">-17%</span>
             </button>
           </div>
@@ -147,7 +147,7 @@ export function PricingSection() {
             <div className="min-w-[768px]">
               <div className="flex items-center p-6 bg-secondary border-b border-border">
                 <div className="flex-1">
-                  <h3 className="text-xl font-medium">Возможности</h3>
+                  <h3 className="text-xl font-medium">Что входит</h3>
                 </div>
                 <div className="flex items-center gap-8">
                   {plans.map((plan) => (
@@ -191,7 +191,7 @@ export function PricingSection() {
 
         <div className="mt-12 text-center">
           <button className="bg-[#156d95] text-white px-[18px] py-[15px] rounded-full text-lg hover:rounded-2xl transition-all">
-            Начать с тарифа {plans.find((p) => p.level === selectedPlan)?.name}
+            Записаться на {plans.find((p) => p.level === selectedPlan)?.name}
           </button>
         </div>
       </div>

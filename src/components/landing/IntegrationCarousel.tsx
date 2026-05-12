@@ -46,10 +46,10 @@ const defaultBottomRowApps: IntegrationApp[] = [
 ];
 
 export const IntegrationCarousel = ({
-  buttonText = "Все интеграции",
+  buttonText = "Все услуги",
   buttonHref = "#",
-  title = "Интегрируется со всем вашим стеком инструментов.",
-  subtitle = "Подключите СинхроЛинк к Slack, Zoom, Notion, Google Meet и десяткам других сервисов для бесшовного анализа коммуникаций.",
+  title = "Работаем со всеми моделями грузовиков IVECO.",
+  subtitle = "Daily, Eurocargo, Trakker, Stralis — любые модификации и годы выпуска. Оригинальный диагностический софт IVECO, оригинальные и сертифицированные запчасти всегда в наличии.",
   topRowApps = defaultTopRowApps,
   bottomRowApps = defaultBottomRowApps,
 }: IntegrationCarouselProps) => {

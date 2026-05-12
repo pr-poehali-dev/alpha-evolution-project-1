@@ -15,12 +15,12 @@ interface ProductTeaserCardProps {
 
 export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   const {
-    dailyVolumeLabel = "ОБРАБОТАНО СООБЩЕНИЙ ЗА СУТКИ",
-    headline = "Интеллектуальный слой для современных коммуникаций",
-    subheadline = "СинхроЛинк объединяет все ваши звонки, чаты и встречи в единую AI-платформу — предоставляя аналитику в реальном времени, анализ тональности и синхронизацию команды.",
-    primaryButtonText = "Начать анализ",
+    dailyVolumeLabel = "ОФИЦИАЛЬНЫЙ СЕРВИС IVECO В ВАШЕМ ГОРОДЕ",
+    headline = "Ремонт грузовиков IVECO — узкая специализация, глубокая экспертиза",
+    subheadline = "Специализируемся исключительно на IVECO: Daily, Eurocargo, Trakker, Stralis. Диагностика, капремонт двигателей Common Rail, КПП, электрика и ТО — всё в одном месте.",
+    primaryButtonText = "Записаться на ремонт",
     primaryButtonHref = "",
-    secondaryButtonText = "Документация API",
+    secondaryButtonText = "Узнать стоимость",
     secondaryButtonHref = "",
   } = props;
 
@@ -91,10 +91,11 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             <div className="flex flex-col items-center justify-center text-center p-8">
               <div className="w-32 h-32 rounded-full bg-[#156d95]/20 flex items-center justify-center mb-6">
                 <svg className="w-16 h-16 text-[#156d95]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8zM5.5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                 </svg>
               </div>
-              <p className="text-[#156d95] font-medium text-xl">Облачная аналитика</p>
+              <p className="text-[#156d95] font-medium text-xl">Специализация: только IVECO</p>
+              <p className="text-[#156d95]/60 text-sm mt-2 text-center max-w-xs">Daily · Eurocargo · Trakker · Stralis</p>
             </div>
           </motion.div>
         </div>

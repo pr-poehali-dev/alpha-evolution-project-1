@@ -19,23 +19,23 @@ interface DataPoint {
 
 const stats: StatItem[] = [
   {
-    value: "1 млрд+",
-    description: "Сообщений анализируется\nежедневно",
+    value: "15+ лет",
+    description: "Опыт работы\nисключительно с IVECO",
     delay: 0,
   },
   {
-    value: "99.9%",
-    description: "Точность определения\nтональности",
+    value: "4 модели",
+    description: "Daily, Eurocargo,\nTrakker, Stralis",
     delay: 0.2,
   },
   {
-    value: "50+",
-    description: "Поддерживаемых\nязыков",
+    value: "98%",
+    description: "Клиентов возвращаются\nснова",
     delay: 0.4,
   },
   {
-    value: "1000+",
-    description: "Организаций используют\nСинхроЛинк",
+    value: "500+",
+    description: "Грузовиков отремонтировано\nза последний год",
     delay: 0.6,
   },
 ];
@@ -85,7 +85,7 @@ export const BankingScaleHero = () => {
                   className="block whitespace-nowrap overflow-hidden relative z-10"
                   style={{ color: "#146e96" }}
                 >
-                  Доверие в масштабе
+                  Экспертиза подтверждена годами
                 </motion.span>
                 <motion.span
                   initial={{ opacity: 0 }}
@@ -98,19 +98,19 @@ export const BankingScaleHero = () => {
             </div>
 
             <h2 className="text-[40px] font-normal leading-tight tracking-tight text-[#111A4A] mb-6">
-              Анализируем миллиарды разговоров ежедневно{" "}
+              Ремонтируем грузовики IVECO так,{" "}
               <span className="opacity-40">
-                для самых требовательных команд и корпораций мира.
+                как будто это наш собственный автопарк.
               </span>
             </h2>
 
             <p className="text-lg leading-6 text-[#111A4A] opacity-60 mt-0 mb-6">
-              Как интеллектуальный слой для современных коммуникаций, мы предоставляем аналитику в реальном времени и распознавание эмоций через нашу продвинутую AI-платформу.
+              Узкая специализация на одной марке даёт нам то, чего нет у универсальных сервисов: редкий оригинальный софт для диагностики ECU, запчасти со склада и механики, знающие IVECO до последнего болта.
             </p>
 
             <button className="relative inline-flex justify-center items-center leading-4 text-center cursor-pointer whitespace-nowrap outline-none font-medium h-9 text-[#232730] bg-white/50 backdrop-blur-sm shadow-[0_1px_1px_0_rgba(255,255,255,0),0_0_0_1px_rgba(87,90,100,0.12)] transition-all duration-200 ease-in-out rounded-lg px-4 mt-5 text-sm group hover:shadow-[0_1px_2px_0_rgba(0,0,0,0.05),0_0_0_1px_rgba(87,90,100,0.18)]">
               <span className="relative z-10 flex items-center gap-1">
-                Узнать больше о платформе
+                Узнать больше об услугах
                 <ArrowRight className="w-4 h-4 -mr-1 transition-transform duration-150 group-hover:translate-x-1" />
               </span>
             </button>

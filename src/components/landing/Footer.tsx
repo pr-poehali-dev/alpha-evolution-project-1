@@ -26,56 +26,53 @@ interface FooterProps {
 
 const defaultSections: FooterSection[] = [
   {
-    title: "Продукт",
+    title: "Услуги",
     links: [
-      { label: "Возможности", href: "#features" },
-      { label: "Интеграции", href: "#integrations" },
-      { label: "Тарифы", href: "#pricing" },
-      { label: "Документация API", href: "#api" },
-      { label: "Обновления", href: "#changelog" },
+      { label: "Диагностика и ТО", href: "#features" },
+      { label: "Ремонт двигателей", href: "#features" },
+      { label: "КПП и мосты", href: "#features" },
+      { label: "Электрика и ECU", href: "#features" },
+      { label: "Тормозная система", href: "#features" },
     ],
   },
   {
-    title: "Компания",
+    title: "Модели IVECO",
     links: [
-      { label: "О нас", href: "#about" },
-      { label: "Карьера", href: "#careers" },
-      { label: "Блог", href: "#blog" },
-      { label: "Пресс-кит", href: "#press" },
+      { label: "IVECO Daily", href: "#" },
+      { label: "IVECO Eurocargo", href: "#" },
+      { label: "IVECO Trakker", href: "#" },
+      { label: "IVECO Stralis", href: "#" },
+    ],
+  },
+  {
+    title: "Информация",
+    links: [
+      { label: "О сервисе", href: "#about" },
+      { label: "Кейсы клиентов", href: "#solutions" },
+      { label: "Стоимость", href: "#pricing" },
+      { label: "FAQ", href: "#faq" },
       { label: "Контакты", href: "#contact" },
-    ],
-  },
-  {
-    title: "Ресурсы",
-    links: [
-      { label: "Документация", href: "#docs" },
-      { label: "Центр помощи", href: "#help" },
-      { label: "Сообщество", href: "#community" },
-      { label: "Кейсы", href: "#case-studies" },
-      { label: "Вебинары", href: "#webinars" },
     ],
   },
   {
     title: "Юридическое",
     links: [
       { label: "Политика конфиденциальности", href: "#privacy" },
-      { label: "Условия использования", href: "#terms" },
-      { label: "Безопасность", href: "#security" },
-      { label: "Соответствие", href: "#compliance" },
-      { label: "Политика cookies", href: "#cookies" },
+      { label: "Условия обслуживания", href: "#terms" },
+      { label: "Гарантийная политика", href: "#warranty" },
     ],
   },
 ];
 
 export const Footer = ({
-  companyName = "СинхроЛинк",
-  tagline = "Интеллектуальный слой для современных коммуникаций",
+  companyName = "IVECO Сервис",
+  tagline = "Специализированный сервис грузовых автомобилей IVECO. Диагностика, ремонт, ТО — всё в одном месте.",
   sections = defaultSections,
   socialLinks = {
-    twitter: "https://twitter.com",
+    twitter: undefined,
     telegram: "https://t.me",
-    github: "https://github.com",
-    email: "hello@sinhrolink.ru",
+    github: undefined,
+    email: "info@iveco-service.ru",
   },
   copyrightText,
 }: FooterProps) => {
