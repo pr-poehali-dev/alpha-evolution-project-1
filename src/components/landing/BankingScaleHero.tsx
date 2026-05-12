@@ -42,7 +42,7 @@ export const BankingScaleHero = ({ id }: { id?: string }) => {
   }, []);
 
   return (
-    <div id={id} className="w-full overflow-hidden bg-white">
+    <div id={id} className="w-full overflow-hidden bg-white border-b border-gray-100">
       <div className="mx-auto max-w-7xl px-8 py-24 pt-16">
         <div className="grid grid-cols-12 gap-5 gap-y-16">
           <div className="col-span-12 md:col-span-6 relative z-10">
