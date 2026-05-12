@@ -38,9 +38,13 @@ export function PricingSection({ onContactClick }: PricingSectionProps) {
   return (
     <section className="pt-16 pb-24 bg-background border-t border-gray-100" id="pricing">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-[40px] font-normal leading-tight mb-4">Стоимость услуг</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <div className="mb-14">
+          <div className="inline-flex items-center gap-2 bg-[#156d95]/10 rounded-full px-4 py-1.5 mb-5">
+            <span className="w-2 h-2 rounded-full bg-[#156d95]" />
+            <p className="text-sm font-semibold tracking-wide text-[#156d95] uppercase">Цены</p>
+          </div>
+          <h2 className="text-[42px] font-semibold leading-tight tracking-tight text-[#202020] mb-4">Стоимость услуг</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl">
             Популярные виды работ для IVECO Daily, Eurocargo, Trakker, Stralis. Точную стоимость уточняйте у мастера — зависит от модели и объёма.
           </p>
         </div>
@@ -81,7 +85,7 @@ export function PricingSection({ onContactClick }: PricingSectionProps) {
           </div>
         </div>
 
-        <div className="mt-4 text-center">
+        <div className="mt-4 text-center pb-4">
           <p className="text-muted-foreground mb-4">Не нашли нужную услугу или хотите уточнить стоимость?</p>
           <button
             onClick={onContactClick}

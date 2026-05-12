@@ -23,10 +23,14 @@ const Index = () => {
       <ServicesSection />
       <AboutSection />
       <PricingSection onContactClick={() => setIsContactOpen(true)} />
-      <section className="w-full py-16 bg-white">
+      <section className="w-full pt-12 pb-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-[40px] font-normal leading-tight text-[#202020] tracking-tight mb-4">Как нас найти</h2>
-          <p className="text-lg text-[#666666] mb-8">г.о. Люберцы, Московская область</p>
+          <div className="inline-flex items-center gap-2 bg-[#CC6600]/10 rounded-full px-4 py-1.5 mb-5">
+            <span className="w-2 h-2 rounded-full bg-[#CC6600]" />
+            <p className="text-sm font-semibold tracking-wide text-[#CC6600] uppercase">Адрес</p>
+          </div>
+          <h2 className="text-[42px] font-semibold leading-tight text-[#202020] tracking-tight mb-3">Как нас найти</h2>
+          <p className="text-xl text-[#666666] mb-8">г.о. Люберцы, Московская область</p>
           <div className="w-full rounded-[24px] overflow-hidden" style={{ height: 420 }}>
             <iframe
               src="https://yandex.ru/map-widget/v1/?ll=37.992298%2C55.586241&z=16&pt=37.992298%2C55.586241%2Cpm2rdm&lang=ru_RU"
