@@ -53,9 +53,13 @@ export const PortfolioNavbar = () => {
           <div className="flex-shrink-0">
             <button
               onClick={() => handleLinkClick("#home")}
-              className="text-2xl font-bold text-foreground hover:text-primary transition-colors duration-200"
+              className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-200"
             >
-              <span className="font-extrabold">IVECO Сервис</span>
+              <svg width="72" height="28" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="180" height="60" rx="4" fill="#CC6600"/>
+                <text x="90" y="44" textAnchor="middle" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="42" fill="white" letterSpacing="2">IVECO</text>
+              </svg>
+              <span className="font-semibold text-lg text-foreground">Сервис</span>
             </button>
           </div>
 
