@@ -45,8 +45,9 @@ const messengers = [
     href: "https://max.ru/+79671709494",
     color: "#7B61FF",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+      <svg viewBox="0 0 32 32" fill="none" className="w-4 h-4">
+        <path d="M5 16 L16 5 L27 16 L16 27 Z" fill="white"/>
+        <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="#7B61FF"/>
       </svg>
     ),
   },
