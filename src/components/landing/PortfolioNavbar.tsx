@@ -45,10 +45,7 @@ const messengers = [
     href: "https://max.ru/+79671709494",
     color: "#7B61FF",
     icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-4 h-4">
-        <path d="M5 16 L16 5 L27 16 L16 27 Z" fill="white"/>
-        <path d="M10 16 L16 10 L22 16 L16 22 Z" fill="#7B61FF"/>
-      </svg>
+      <img src="https://cdn.poehali.dev/files/55bd03ad-570f-4473-b785-ce1cf8a06b97.jpeg" alt="MAX" className="w-4 h-4 rounded-full object-cover" />
     ),
   },
 ];
