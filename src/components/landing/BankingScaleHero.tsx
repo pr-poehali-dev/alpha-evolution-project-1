@@ -1,52 +1,56 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 
-interface DataPoint {
-  id: number;
-  left: number;
-  top: number;
-  height: number;
-  direction: "up" | "down";
-  delay: number;
-}
-
-const generateDataPoints = (): DataPoint[] => {
-  const points: DataPoint[] = [];
-  const baseLeft = 1;
-  const spacing = 32;
-  for (let i = 0; i < 50; i++) {
-    const direction = i % 2 === 0 ? "down" : "up";
-    const height = Math.floor(Math.random() * 120) + 88;
-    const top = direction === "down" ? Math.random() * 150 + 250 : Math.random() * 100 - 80;
-    points.push({
-      id: i,
-      left: baseLeft + i * spacing,
-      top,
-      height,
-      direction,
-      delay: i * 0.035,
-    });
-  }
-  return points;
-};
+const TRUCK_IMG = "https://cdn.poehali.dev/projects/8a1cb2ba-b7b7-49d1-9093-317eb32a0b87/files/d8169013-a66f-4276-84c9-917b066b6bd9.jpg";
 
 export const BankingScaleHero = ({ id }: { id?: string }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [dataPoints] = useState<DataPoint[]>(generateDataPoints());
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
-  }, []);
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
 
   return (
-    <div id={id} className="w-full overflow-hidden bg-white border-b border-gray-100">
-      <div className="mx-auto max-w-7xl px-8 py-24 pt-16">
-        <div className="grid grid-cols-12 gap-5 gap-y-16">
-          <div className="col-span-12 md:col-span-6 relative z-10">
+    <div id={id} ref={sectionRef} className="w-full overflow-hidden bg-white border-b border-gray-100">
+      <div className="mx-auto max-w-7xl px-8 py-20 pt-16">
+        <div className="grid grid-cols-12 gap-8 items-center">
+
+          {/* Левая колонка — машина */}
+          <div className="col-span-12 md:col-span-5 relative">
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ x: "-110%", opacity: 0 }}
+              animate={hasAnimated ? { x: 0, opacity: 1 } : { x: "-110%", opacity: 0 }}
+              transition={{
+                duration: 0.9,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.1,
+              }}
+              className="relative w-full"
+            >
+              <img
+                src={TRUCK_IMG}
+                alt="Грузовик IVECO с поднятым капотом"
+                className="w-full h-auto rounded-3xl object-cover shadow-2xl"
+                style={{ maxHeight: 440 }}
+              />
+              {/* Декоративная подложка */}
+              <div
+                className="absolute -bottom-4 -right-4 w-full h-full rounded-3xl -z-10"
+                style={{ background: "linear-gradient(135deg, #156d95 0%, #CC6600 100%)", opacity: 0.15 }}
+              />
+            </motion.div>
+          </div>
+
+          {/* Правая колонка — текст */}
+          <div className="col-span-12 md:col-span-7 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
               className="inline-flex items-center gap-2 bg-[#156d95]/10 rounded-full px-4 py-1.5 mb-8"
             >
               <span className="w-2 h-2 rounded-full bg-[#156d95]" />
@@ -55,66 +59,48 @@ export const BankingScaleHero = ({ id }: { id?: string }) => {
               </span>
             </motion.div>
 
-            <h2 className="text-[48px] font-semibold leading-[1.1] tracking-tight text-[#111A4A] mb-7">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-[48px] font-semibold leading-[1.1] tracking-tight text-[#111A4A] mb-7"
+            >
               Ремонтируем грузовики IVECO так,{" "}
               <span className="text-[#156d95] opacity-50">
                 как будто это наш собственный автопарк.
               </span>
-            </h2>
+            </motion.h2>
 
-            <p className="text-xl leading-8 text-[#444444] mt-0 mb-8">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.55 }}
+              className="text-xl leading-8 text-[#444444] mb-8"
+            >
               Узкая специализация на одной марке даёт нам то, чего нет у универсальных сервисов: оригинальный софт для диагностики ECU, запчасти со склада и механики, знающие IVECO до последнего болта.
-            </p>
+            </motion.p>
 
-
+            {/* Быстрые факты */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="flex flex-wrap gap-3"
+            >
+              {[
+                "Daily · Eurocargo · Trakker · Stralis",
+                "Оригинальная диагностика ECU",
+                "Запчасти со склада",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-4 py-2 rounded-full bg-gray-100 text-[#333] text-sm font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
           </div>
-
-          <div className="col-span-12 md:col-span-6">
-            <div className="relative w-full h-[416px] -ml-[200px]">
-              <div className="absolute top-0 left-[302px] w-[680px] h-[416px] pointer-events-none">
-                <div className="relative w-full h-full">
-                  {dataPoints.map((point) => (
-                    <motion.div
-                      key={point.id}
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={
-                        isVisible
-                          ? { opacity: [0, 1, 1], height: [0, point.height, point.height] }
-                          : {}
-                      }
-                      transition={{
-                        duration: 2,
-                        delay: point.delay,
-                        ease: [0.5, 0, 0.01, 1],
-                      }}
-                      className="absolute w-1.5 rounded-[3px]"
-                      style={{
-                        left: `${point.left}px`,
-                        top: `${point.top}px`,
-                        background:
-                          point.direction === "down"
-                            ? "linear-gradient(rgb(176, 200, 196) 0%, rgb(176, 200, 196) 10%, rgba(156, 217, 93, 0.1) 40%, rgba(113, 210, 240, 0) 75%)"
-                            : "linear-gradient(to top, rgb(176, 200, 196) 0%, rgb(176, 200, 196) 10%, rgba(156, 217, 93, 0.1) 40%, rgba(113, 210, 240, 0) 75%)",
-                        backgroundColor: "rgba(22, 126, 108, 0.01)",
-                      }}
-                    >
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={isVisible ? { opacity: [0, 1] } : {}}
-                        transition={{ duration: 0.3, delay: point.delay + 1.7 }}
-                        className="absolute -left-[1px] w-2 h-2 bg-[#167E6C] rounded-full"
-                        style={{
-                          top: point.direction === "down" ? "0px" : `${point.height - 8}px`,
-                          backgroundColor: "#146e96",
-                        }}
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
 
         </div>
       </div>
