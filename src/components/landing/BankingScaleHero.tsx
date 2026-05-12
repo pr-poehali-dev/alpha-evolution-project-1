@@ -33,12 +33,9 @@ const generateDataPoints = (): DataPoint[] => {
 export const BankingScaleHero = ({ id }: { id?: string }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [dataPoints] = useState<DataPoint[]>(generateDataPoints());
-  const [typingComplete, setTypingComplete] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
-    const timer = setTimeout(() => setTypingComplete(true), 1000);
-    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -46,36 +43,27 @@ export const BankingScaleHero = ({ id }: { id?: string }) => {
       <div className="mx-auto max-w-7xl px-8 py-24 pt-16">
         <div className="grid grid-cols-12 gap-5 gap-y-16">
           <div className="col-span-12 md:col-span-6 relative z-10">
-            <div className="relative h-6 inline-flex items-center font-mono uppercase text-xs text-[#167E6C] mb-12 px-2">
-              <div className="flex items-center gap-0.5 overflow-hidden">
-                <motion.span
-                  initial={{ width: 0 }}
-                  animate={{ width: "auto" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="block whitespace-nowrap overflow-hidden relative z-10"
-                  style={{ color: "#146e96" }}
-                >
-                  Экспертиза подтверждена годами
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: typingComplete ? [1, 0, 1, 0] : 0 }}
-                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  className="block w-1.5 h-3 bg-[#167E6C] ml-0.5 relative z-10 rounded-sm"
-                  style={{ backgroundColor: "#146e96" }}
-                />
-              </div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 bg-[#156d95]/10 rounded-full px-4 py-1.5 mb-8"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#156d95]" />
+              <span className="text-sm font-semibold tracking-wide text-[#156d95] uppercase font-mono">
+                Специализированный IVECO сервис
+              </span>
+            </motion.div>
 
-            <h2 className="text-[40px] font-normal leading-tight tracking-tight text-[#111A4A] mb-6">
+            <h2 className="text-[48px] font-semibold leading-[1.1] tracking-tight text-[#111A4A] mb-7">
               Ремонтируем грузовики IVECO так,{" "}
-              <span className="opacity-40">
+              <span className="text-[#156d95] opacity-50">
                 как будто это наш собственный автопарк.
               </span>
             </h2>
 
-            <p className="text-lg leading-6 text-[#111A4A] opacity-60 mt-0 mb-6">
-              Узкая специализация на одной марке даёт нам то, чего нет у универсальных сервисов: редкий оригинальный софт для диагностики ECU, запчасти со склада и механики, знающие IVECO до последнего болта.
+            <p className="text-xl leading-8 text-[#444444] mt-0 mb-8">
+              Узкая специализация на одной марке даёт нам то, чего нет у универсальных сервисов: оригинальный софт для диагностики ECU, запчасти со склада и механики, знающие IVECO до последнего болта.
             </p>
 
 

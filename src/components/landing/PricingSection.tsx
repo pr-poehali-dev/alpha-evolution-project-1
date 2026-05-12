@@ -36,7 +36,7 @@ interface PricingSectionProps {
 
 export function PricingSection({ onContactClick }: PricingSectionProps) {
   return (
-    <section className="py-24 bg-background" id="pricing">
+    <section className="pt-16 pb-24 bg-background border-t border-gray-100" id="pricing">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-[40px] font-normal leading-tight mb-4">Стоимость услуг</h2>

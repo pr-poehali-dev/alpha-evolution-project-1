@@ -25,7 +25,7 @@ const values = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="w-full py-24 bg-white border-t border-gray-100">
+    <section id="about" className="w-full pt-24 pb-16 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-8">
 
         {/* Заголовок */}
