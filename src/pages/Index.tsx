@@ -3,13 +3,13 @@ import {
   PortfolioNavbar,
   ProductTeaserCard,
   BankingScaleHero,
-  CaseStudiesCarousel,
   PricingSection,
-  FAQSection,
   Footer,
   ContactModal,
   AppointmentModal,
 } from "@/components/landing";
+import { ServicesSection } from "@/components/landing/ServicesSection";
+import { AboutSection } from "@/components/landing/AboutSection";
 
 const Index = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -19,10 +19,10 @@ const Index = () => {
     <>
       <PortfolioNavbar />
       <ProductTeaserCard />
-      <BankingScaleHero />
-      <CaseStudiesCarousel />
+      <BankingScaleHero id="features" />
+      <ServicesSection />
+      <AboutSection />
       <PricingSection onContactClick={() => setIsContactOpen(true)} />
-      <FAQSection />
       <section className="w-full py-16 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-[40px] font-normal leading-tight text-[#202020] tracking-tight mb-4">Как нас найти</h2>

@@ -9,9 +9,8 @@ interface NavigationLink {
 
 const navigationLinks: NavigationLink[] = [
   { name: "Услуги", href: "#features" },
+  { name: "О нас", href: "#about" },
   { name: "Цены", href: "#pricing" },
-  { name: "Кейсы", href: "#solutions" },
-  { name: "FAQ", href: "#resources" },
 ];
 
 const phones = [

@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-
-interface StatItem {
-  value: string;
-  description: string;
-  delay: number;
-}
 
 interface DataPoint {
   id: number;
@@ -16,29 +9,6 @@ interface DataPoint {
   direction: "up" | "down";
   delay: number;
 }
-
-const stats: StatItem[] = [
-  {
-    value: "15+ лет",
-    description: "Опыт работы\nисключительно с IVECO",
-    delay: 0,
-  },
-  {
-    value: "4 модели",
-    description: "Daily, Eurocargo,\nTrakker, Stralis",
-    delay: 0.2,
-  },
-  {
-    value: "98%",
-    description: "Клиентов возвращаются\nснова",
-    delay: 0.4,
-  },
-  {
-    value: "500+",
-    description: "Грузовиков отремонтировано\nза последний год",
-    delay: 0.6,
-  },
-];
 
 const generateDataPoints = (): DataPoint[] => {
   const points: DataPoint[] = [];
@@ -60,7 +30,7 @@ const generateDataPoints = (): DataPoint[] => {
   return points;
 };
 
-export const BankingScaleHero = () => {
+export const BankingScaleHero = ({ id }: { id?: string }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [dataPoints] = useState<DataPoint[]>(generateDataPoints());
   const [typingComplete, setTypingComplete] = useState(false);
@@ -72,7 +42,7 @@ export const BankingScaleHero = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-white">
+    <div id={id} className="w-full overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl px-8 py-24 pt-16">
         <div className="grid grid-cols-12 gap-5 gap-y-16">
           <div className="col-span-12 md:col-span-6 relative z-10">
@@ -108,12 +78,7 @@ export const BankingScaleHero = () => {
               Узкая специализация на одной марке даёт нам то, чего нет у универсальных сервисов: редкий оригинальный софт для диагностики ECU, запчасти со склада и механики, знающие IVECO до последнего болта.
             </p>
 
-            <button className="relative inline-flex justify-center items-center leading-4 text-center cursor-pointer whitespace-nowrap outline-none font-medium h-9 text-[#232730] bg-white/50 backdrop-blur-sm shadow-[0_1px_1px_0_rgba(255,255,255,0),0_0_0_1px_rgba(87,90,100,0.12)] transition-all duration-200 ease-in-out rounded-lg px-4 mt-5 text-sm group hover:shadow-[0_1px_2px_0_rgba(0,0,0,0.05),0_0_0_1px_rgba(87,90,100,0.18)]">
-              <span className="relative z-10 flex items-center gap-1">
-                Узнать больше об услугах
-                <ArrowRight className="w-4 h-4 -mr-1 transition-transform duration-150 group-hover:translate-x-1" />
-              </span>
-            </button>
+
           </div>
 
           <div className="col-span-12 md:col-span-6">
@@ -162,44 +127,7 @@ export const BankingScaleHero = () => {
             </div>
           </div>
 
-          <div className="col-span-12">
-            <div className="overflow-visible pb-5">
-              <div className="grid grid-cols-12 gap-5 relative z-10">
-                {stats.map((stat, index) => (
-                  <div key={index} className="col-span-6 md:col-span-3">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-                      animate={
-                        isVisible
-                          ? {
-                              opacity: [0, 1, 1],
-                              y: [20, 0, 0],
-                              filter: ["blur(4px)", "blur(0px)", "blur(0px)"],
-                            }
-                          : {}
-                      }
-                      transition={{
-                        duration: 1.5,
-                        delay: stat.delay,
-                        ease: [0.1, 0, 0.1, 1],
-                      }}
-                      className="flex flex-col gap-2"
-                    >
-                      <span
-                        className="text-2xl font-medium leading-[26.4px] tracking-tight"
-                        style={{ color: "#146e96" }}
-                      >
-                        {stat.value}
-                      </span>
-                      <p className="text-xs leading-[13.2px] text-[#7C7F88] m-0 whitespace-pre-line">
-                        {stat.description}
-                      </p>
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
