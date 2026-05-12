@@ -97,7 +97,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             </div>
             <div className="overflow-hidden rounded-[32px]">
               <img
-                src="https://cdn.poehali.dev/projects/8a1cb2ba-b7b7-49d1-9093-317eb32a0b87/files/5056298b-260d-4d2b-b741-0c66da87d3c9.jpg"
+                src="https://cdn.poehali.dev/projects/8a1cb2ba-b7b7-49d1-9093-317eb32a0b87/bucket/d6486f14-1097-408b-9641-fcf8d0fb8f65.jpg"
                 alt="IVECO Daily синий грузовик"
                 className="w-full h-full object-cover"
               />
