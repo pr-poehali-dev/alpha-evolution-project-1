@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
-const TRUCK_IMG = "https://cdn.poehali.dev/projects/8a1cb2ba-b7b7-49d1-9093-317eb32a0b87/files/d8169013-a66f-4276-84c9-917b066b6bd9.jpg";
+const TRUCK_IMG = "https://cdn.poehali.dev/files/528dd2ff-4911-4d79-9424-6f71ae4a91b8.png";
 
 export const BankingScaleHero = ({ id }: { id?: string }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -33,14 +33,9 @@ export const BankingScaleHero = ({ id }: { id?: string }) => {
             >
               <img
                 src={TRUCK_IMG}
-                alt="Грузовик IVECO с поднятым капотом"
-                className="w-full h-auto rounded-3xl object-cover shadow-2xl"
-                style={{ maxHeight: 440 }}
-              />
-              {/* Декоративная подложка */}
-              <div
-                className="absolute -bottom-4 -right-4 w-full h-full rounded-3xl -z-10"
-                style={{ background: "linear-gradient(135deg, #156d95 0%, #CC6600 100%)", opacity: 0.15 }}
+                alt="Грузовик IVECO Daily"
+                className="w-full h-auto object-contain drop-shadow-xl"
+                style={{ maxHeight: 420 }}
               />
             </motion.div>
           </div>
