@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Phone } from "lucide-react";
+import { X, Phone, ArrowLeft, CheckCircle } from "lucide-react";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -46,7 +47,27 @@ const messengers = [
   },
 ];
 
+type View = "main" | "callback" | "success";
+
 export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
+  const [view, setView] = useState<View>("main");
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleClose = () => {
+    onClose();
+    setTimeout(() => { setView("main"); setPhone(""); setName(""); }, 300);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    await new Promise((r) => setTimeout(r, 800));
+    setLoading(false);
+    setView("success");
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -55,7 +76,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={handleClose}
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
           />
           <div className="fixed inset-0 z-50 flex items-center justify-center px-4 pointer-events-none">
@@ -67,7 +88,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               className="bg-white rounded-3xl shadow-2xl w-full max-w-sm p-8 relative pointer-events-auto"
             >
               <button
-                onClick={onClose}
+                onClick={handleClose}
                 className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
               >
                 <X className="w-4 h-4 text-gray-600" />
@@ -80,41 +101,116 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                 </svg>
               </div>
 
-              <h2 className="text-2xl font-bold text-center text-gray-900 mb-1">
-                Напишите нам, мы на связи!
-              </h2>
-              <p className="text-sm text-gray-500 text-center mb-7">
-                Ежедневно с 8:00 до 20:00
-              </p>
+              <AnimatePresence mode="wait">
 
-              <div className="space-y-3 mb-6">
-                {messengers.map((m) => (
-                  <a
-                    key={m.name}
-                    href={m.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 w-full px-5 py-4 rounded-2xl text-white font-semibold text-base transition-opacity hover:opacity-90"
-                    style={{ background: m.gradient }}
-                  >
-                    <span className="flex-shrink-0">{m.icon}</span>
-                    <span>{m.name}</span>
-                  </a>
-                ))}
-              </div>
+                {view === "main" && (
+                  <motion.div key="main" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    <h2 className="text-2xl font-bold text-center text-gray-900 mb-1">Напишите нам, мы на связи!</h2>
+                    <p className="text-sm text-gray-500 text-center mb-7">Ежедневно с 8:00 до 20:00</p>
 
-              <div className="border-t border-gray-100 pt-5 space-y-2">
-                {phones.map((p) => (
-                  <a
-                    key={p.href}
-                    href={p.href}
-                    className="flex items-center justify-center gap-2 text-gray-700 font-medium hover:text-[#156d95] transition-colors"
+                    <div className="space-y-3 mb-5">
+                      {messengers.map((m) => (
+                        <a
+                          key={m.name}
+                          href={m.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-4 w-full px-5 py-4 rounded-2xl text-white font-semibold text-base transition-opacity hover:opacity-90"
+                          style={{ background: m.gradient }}
+                        >
+                          <span className="flex-shrink-0">{m.icon}</span>
+                          <span>{m.name}</span>
+                        </a>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => setView("callback")}
+                      className="w-full py-3.5 rounded-2xl border-2 border-[#156d95] text-[#156d95] font-semibold text-base hover:bg-[#156d95]/5 transition-colors flex items-center justify-center gap-2 mb-5"
+                    >
+                      <Phone className="w-4 h-4" />
+                      Заказать обратный звонок
+                    </button>
+
+                    <div className="border-t border-gray-100 pt-4 space-y-2">
+                      {phones.map((p) => (
+                        <a
+                          key={p.href}
+                          href={p.href}
+                          className="flex items-center justify-center gap-2 text-gray-700 font-medium hover:text-[#156d95] transition-colors"
+                        >
+                          <Phone className="w-4 h-4" />
+                          {p.number}
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+
+                {view === "callback" && (
+                  <motion.div key="callback" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                    <button
+                      onClick={() => setView("main")}
+                      className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-800 transition-colors mb-5"
+                    >
+                      <ArrowLeft className="w-4 h-4" /> Назад
+                    </button>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-1">Обратный звонок</h2>
+                    <p className="text-sm text-gray-500 mb-6">Перезвоним в течение 15 минут в рабочее время</p>
+
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Ваше имя</label>
+                        <input
+                          type="text"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Как к вам обращаться?"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#156d95] focus:ring-2 focus:ring-[#156d95]/20 transition-all text-base"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Номер телефона <span className="text-red-500">*</span></label>
+                        <input
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="+7 ___ ___ __ __"
+                          required
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#156d95] focus:ring-2 focus:ring-[#156d95]/20 transition-all text-base"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full py-4 rounded-2xl bg-[#156d95] text-white font-semibold text-base hover:bg-[#156d95]/90 transition-all disabled:opacity-60"
+                      >
+                        {loading ? "Отправляем..." : "Перезвоните мне"}
+                      </button>
+                    </form>
+                  </motion.div>
+                )}
+
+                {view === "success" && (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex flex-col items-center text-center py-4"
                   >
-                    <Phone className="w-4 h-4" />
-                    {p.number}
-                  </a>
-                ))}
-              </div>
+                    <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">Заявка принята!</h2>
+                    <p className="text-gray-500 mb-6">Перезвоним вам в ближайшее время. Работаем ежедневно с 8:00 до 20:00.</p>
+                    <button
+                      onClick={handleClose}
+                      className="px-8 py-3 rounded-full bg-[#156d95] text-white font-semibold hover:bg-[#156d95]/90 transition-all"
+                    >
+                      Закрыть
+                    </button>
+                  </motion.div>
+                )}
+
+              </AnimatePresence>
             </motion.div>
           </div>
         </>
